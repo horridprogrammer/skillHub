@@ -1,0 +1,96 @@
+SkillUpHub – Online Learning & Certification Platform
+=====================================================
+
+SkillUpHub is a full-stack web application that simulates a real-world e-learning platform. It enables students to enroll in courses, watch video lessons, take quizzes, and receive course completion certificates. Admins can manage courses, upload lessons, assign quizzes, and monitor user progress.
+
+This project is built using Spring Boot (Java) for the backend and ReactJS for the frontend. It demonstrates authentication, role-based access control, REST API integration, and a modular scalable architecture.
+
+-----------------------------------------------------
+TECH STACK
+-----------------------------------------------------
+
+Frontend:
+- React
+- Axios
+- React Router
+- Tailwind CSS (optional)
+
+Backend:
+- Spring Boot
+- Spring Security
+- JWT Authentication
+- Spring Data JPA
+- PostgreSQL
+
+Extras:
+- Swagger/OpenAPI for API docs
+- PDF generation for certificates
+
+-----------------------------------------------------
+FOLDER STRUCTURE
+-----------------------------------------------------
+
+skilluphub/
+├── backend/       (Spring Boot backend)
+├── frontend/      (React frontend)
+├── docs/          (Screenshots, diagrams, etc.)
+├── .gitignore
+├── README.md
+└── LICENSE
+
+-----------------------------------------------------
+FEATURES
+-----------------------------------------------------
+
+STUDENT FEATURES:
+- User registration and login
+- Browse available courses
+- Enroll in courses
+- Watch video lessons
+- Attempt multiple-choice quizzes
+- Track progress
+- Download completion certificate
+
+ADMIN FEATURES:
+- Secure admin login
+- Create/update/delete courses
+- Upload video lessons (URLs)
+- Create/edit quizzes
+- View student progress
+
+AUTHENTICATION:
+- JWT-based login
+- Role-based access (STUDENT, ADMIN)
+- Secured API endpoints
+
+-----------------------------------------------------
+DATABASE DESIGN (ENTITIES)
+-----------------------------------------------------
+
+User: id, name, email, password, role  
+Course: id, title, description, category, thumbnail  
+Lesson: id, course_id, title, video_url, duration, order  
+Quiz: id, lesson_id, questions, correct_answers  
+Enrollment: id, user_id, course_id, enrolled_at  
+Progress: id, user_id, lesson_id, is_completed  
+Certificate: id, user_id, course_id, issued_at, pdf_url  
+
+-----------------------------------------------------
+SAMPLE API ENDPOINTS
+-----------------------------------------------------
+
+POST   /api/auth/register       -> Register new user  
+POST   /api/auth/login          -> Login and receive JWT  
+GET    /api/courses             -> Get all courses  
+POST   /api/courses             -> Admin creates course  
+GET    /api/courses/{id}        -> Get course details  
+POST   /api/enroll              -> Enroll in course  
+GET    /api/quiz/{lessonId}     -> Fetch quiz for lesson  
+POST   /api/progress/complete   -> Mark lesson complete  
+GET    /api/certificate/{user}  -> Generate/download certificate  
+
+-----------------------------------------------------
+LICENSE
+-----------------------------------------------------
+
+This project is licensed under the MIT License.
