@@ -1,8 +1,7 @@
 import { useState } from "react";
+import axios from "axios";
 
 const AddUser = () =>{
-
-    const [formData,setFormData] = useState([])
 
     const [data,setData] = useState({
         "name":"",
@@ -16,9 +15,22 @@ const AddUser = () =>{
         setData({...data,[name]:value});
     }
 
-    const handleSubmit = (e)=>{
+    const handleSubmit = async (e)=>{
         e.preventDefault();
-        setFormData([...formData,data]);
+        try{
+            const response = await axios.post("http://localhost:8081/api/user/add",data);
+            alert("User Added SuccessFully");
+
+            setData({
+                name: "",
+                email: "",
+                password: "",
+                role: ""
+            });
+        }catch(error){
+            console.error("Error Adding User:",error);
+            alert("Error while adding User");
+        }
     }
 
     return <div>
@@ -35,5 +47,5 @@ const AddUser = () =>{
         </form>
     </div>;
 }
-
+// Working Perfect With Backend
 export default AddUser;

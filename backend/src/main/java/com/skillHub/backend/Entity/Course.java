@@ -1,5 +1,6 @@
 package com.skillHub.backend.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -14,6 +15,7 @@ public class Course {
     private String category;
     private String thumbnail;
     @OneToMany(mappedBy = "course",cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Lesson> lesson;
     @OneToMany(mappedBy = "course",cascade = CascadeType.ALL)
     private List<Enrollment> enrollment;

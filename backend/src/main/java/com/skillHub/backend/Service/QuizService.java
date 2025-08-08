@@ -36,4 +36,8 @@ public class QuizService {
     public void deleteQuiz(Long id){
         quizrepo.deleteById(id);
     }
+
+    public Quiz getQuiz(Long id) {
+        return quizrepo.findById(id).orElse(null);
+    }
 }

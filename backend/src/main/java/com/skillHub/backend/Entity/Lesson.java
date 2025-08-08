@@ -1,5 +1,8 @@
 package com.skillHub.backend.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -11,10 +14,12 @@ public class Lesson {
     private String title;
     private String videoUrl;
     private Integer lessonOrder;
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
     @OneToMany(mappedBy = "lesson",cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Quiz> quiz;
     @OneToMany(mappedBy = "lesson",cascade = CascadeType.ALL)
     private List<Progress> progress;

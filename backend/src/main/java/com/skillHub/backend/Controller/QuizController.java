@@ -16,12 +16,18 @@ public class QuizController {
 
     @PostMapping("/add")
     public Quiz addQuiz(@RequestBody Quiz quiz){
+        System.out.println("OPTIONS: " + quiz.getOptions());
         return quizser.addQuiz(quiz);
     }
 
     @GetMapping
     public List<Quiz> getAllQuiz(){
         return quizser.getAllQuiz();
+    }
+
+    @GetMapping("/{quizId}")
+    public Quiz getQuiz(@PathVariable Long quizId){
+        return quizser.getQuiz(quizId);
     }
 
     @PutMapping("/{quizId}")
