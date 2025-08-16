@@ -40,7 +40,10 @@ public class Config {
                 .csrf(csrf->csrf.disable())
                 .authorizeHttpRequests(auth->auth
                         .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/api/user/**").hasRole("ADMIN")
+                        .requestMatchers("/uploads/**").permitAll()
+                        .requestMatchers("/videUploads/**").permitAll()
+                        .requestMatchers("/api/user/**").hasAnyRole("ADMIN","USER")
+                        .requestMatchers("/api/enrollment/add").hasAnyRole("USER","ADMIN")
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

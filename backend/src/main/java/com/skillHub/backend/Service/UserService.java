@@ -49,4 +49,12 @@ public class UserService {
         return user;
     }
 
+    public User getByUserEmail(String email){
+        User user = userrepo.findByEmail(email).orElse(null);
+        if(user==null){
+            throw new UsernameNotFoundException("UserName Not Found");
+        }
+        return user;
+    }
+
 }

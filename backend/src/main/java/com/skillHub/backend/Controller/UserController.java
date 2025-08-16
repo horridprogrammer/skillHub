@@ -31,6 +31,7 @@ public class UserController {
 
     @PutMapping("/{userId}")
     public User updateUser(@PathVariable Long userId,@RequestBody User user){
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userser.updateUser(userId,user);
     }
 
@@ -39,10 +40,13 @@ public class UserController {
         userser.deleteUser(userId);
     }
 
-    @GetMapping("/{userId}")
+    @GetMapping("/id/{userId}")
     public User getUserById(@PathVariable Long userId){
         return  userser.getByUserId(userId);
     }
 
-
+    @GetMapping("/email/{userEmail}")
+    public User getUserByEmail(@PathVariable String userEmail){
+        return userser.getByUserEmail(userEmail);
+    }
 }

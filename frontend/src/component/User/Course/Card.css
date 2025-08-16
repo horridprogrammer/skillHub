@@ -1,0 +1,81 @@
+/* Container to arrange cards in a grid */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+/* Each course card */
+.course-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect */
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Thumbnail image */
+.course-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background-color: #eaeaea;
+}
+
+/* Body content */
+.course-body {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Course title */
+.course-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 5px 0;
+  color: #333;
+}
+
+/* Category text */
+.course-category {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6c757d;
+  margin-bottom: 8px;
+}
+
+/* Description text */
+.course-description {
+  font-size: 14px;
+  color: #555;
+  flex-grow: 1;
+  margin-bottom: 12px;
+}
+
+/* View Course button */
+.course-btn {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.course-btn:hover {
+  background-color: #0056b3;
+}

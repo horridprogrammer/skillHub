@@ -1,5 +1,8 @@
 package com.skillHub.backend.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -12,9 +15,11 @@ public class Enrollment {
     private Date enrollmentDate;
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonBackReference(value = "user-enrollment")
     private User user;
     @ManyToOne
     @JoinColumn(name = "course_id")
+    @JsonManagedReference(value="course-enrollment")
     private Course course;
 
     public Enrollment() {

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -15,6 +16,9 @@ public class EnrollmentService {
     public EnrollmentRepository enrollmentrepo;
 
     public Enrollment addEnrollment(Enrollment enrollment){
+        if(enrollment.getEnrollmentDate()==null){
+            enrollment.setEnrollmentDate(new Date());
+        }
         return enrollmentrepo.save(enrollment);
     }
 
@@ -44,5 +48,9 @@ public class EnrollmentService {
 
     public void deleteEnrollment(Long id){
         enrollmentrepo.deleteById(id);
+    }
+
+    public List<Enrollment> getEnrollmentsByUserId(long userId){
+        return enrollmentrepo.findByUserId(userId);
     }
 }

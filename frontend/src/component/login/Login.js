@@ -1,12 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const [formData, setFormData] = useState([]);
     const [data, setData] = useState({
-        "username": "",
-        "password": ""
+        username: "",
+        password: ""
     });
+    const nav = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -18,24 +19,31 @@ const Login = () => {
 
         try {
             const response = await axios.post("http://localhost:8081/api/auth/login", {
-                email: data.username,   // Backend expects 'email'
+                email: data.username, // Backend expects 'email'
                 password: data.password
             });
 
             const token = response.data.token;
             const role = response.data.role;
+            const email = data.username;
+
+            console.log(response.data)
 
             // Save to localStorage
             localStorage.setItem("token", token);
+            console.log(localStorage.getItem("token"));
             localStorage.setItem("role", role);
+            console.log(localStorage.getItem("role"));
+            localStorage.setItem("email",email);
+            console.log(localStorage.getItem("email"))
 
-            // Optional redirect logic
+            // Redirect based on role
             if (role === "ROLE_ADMIN") {
-                window.location.href = "/admin";
+                nav("/admin/admin/dashboard", { replace: true });
             } else if (role === "ROLE_USER") {
-                window.location.href = "/user";
+                nav("/user/user/dashboard", { replace: true });
             } else {
-                window.location.href = "/unauthorized";
+                nav("/unauthorized", { replace: true });
             }
 
         } catch (error) {
@@ -44,29 +52,33 @@ const Login = () => {
         }
     };
 
-    return <div>
-        <h1>Login</h1>
+    return (
+        <div>
+            <h1>Login</h1>
 
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Username : </label>
-            <input
-                type="text"
-                id="username"
-                name="username"
-                placeholder="Enter Username"
-                onChange={handleChange}
-            /><br />
-            <label htmlFor="password">Password : </label>
-            <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Enter Password"
-                onChange={handleChange}
-            /><br />
-            <input type="submit" value="Login" />
-        </form>
-    </div>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="username">Username: </label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Enter Username"
+                    onChange={handleChange}
+                /><br />
+
+                <label htmlFor="password">Password: </label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter Password"
+                    onChange={handleChange}
+                /><br />
+
+                <input type="submit" value="Login" />
+            </form>
+        </div>
+    );
 };
 
 export default Login;

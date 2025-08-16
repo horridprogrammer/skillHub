@@ -1,0 +1,41 @@
+.sidebar-logo{
+    height: 50px;
+    margin-right: 10px;   
+}
+
+.sidebar-title{
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.sidebar-header{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sidebar-menu{
+    list-style: none;
+    padding: 0;
+    margin: 40px;
+}
+
+.sidebar-menu li{
+    margin-bottom: 10px;
+}
+
+.sidebar-menu a{
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.2s;
+}
+
+.sidebar-menu a:hover{
+    color: #007bff;
+}
+
+.sidenavbar-main{
+    width: 210px;
+}

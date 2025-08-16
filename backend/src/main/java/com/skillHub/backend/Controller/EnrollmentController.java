@@ -3,6 +3,7 @@ package com.skillHub.backend.Controller;
 import com.skillHub.backend.Entity.Enrollment;
 import com.skillHub.backend.Service.EnrollmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +14,7 @@ public class EnrollmentController {
 
     @Autowired
     public EnrollmentService enrollmentser;
+
 
     @PostMapping("/add")
     public Enrollment addEnrollment(@RequestBody Enrollment enrollment){
@@ -27,6 +29,11 @@ public class EnrollmentController {
     @GetMapping("/{enrollmentId}")
     public Enrollment getEnrollmentById(@PathVariable Long enrollmentId){
         return enrollmentser.getEnrollmentById(enrollmentId);
+    }
+
+    @GetMapping("/user/{userId}")
+    public List<Enrollment> getEnrollmentsByUserId(@PathVariable Long userId){
+        return enrollmentser.getEnrollmentsByUserId(userId);
     }
 
     @PutMapping("/{enrollmentId}")

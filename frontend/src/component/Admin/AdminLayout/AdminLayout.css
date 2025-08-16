@@ -1,0 +1,22 @@
+.admin-layout{
+    display: flex;
+}
+
+.admin-content{
+    flex:1;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    min-height: 100vh;
+    width: 30px;
+}
+
+.sidebar-toggle{
+    position: "absolute";
+    top: "10px";
+    left: "10px";
+    background: "none";
+    border: "none";
+    cursor: "pointer";
+    padding: "5px";
+    height: 30px;
+}

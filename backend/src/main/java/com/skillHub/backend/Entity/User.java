@@ -1,5 +1,6 @@
 package com.skillHub.backend.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public class User {
     private String password;
     private String role;
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    @JsonManagedReference(value = "user-enrollment")
     private List<Enrollment> enrollment;
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     private List<Progress> progress;
