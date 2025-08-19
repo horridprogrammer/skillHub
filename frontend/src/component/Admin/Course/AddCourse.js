@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import "./AddCourse.css"
 
 const AddCourse = () => {
     const navigate = useNavigate();
@@ -66,19 +67,25 @@ const AddCourse = () => {
         }
     };
 
-    return <div>
+    return <div className="add-course-container">
         <h1>Add Course</h1>
         <form onSubmit={handleSubmit}>
-            <label htmlFor="title">Title : </label>
-            <input type="text" name="title" id="title" onChange={handleChange}></input><br />
-            <label htmlFor="des">Description : </label>
-            <input type="text" name="description" id="description" onChange={handleChange}></input><br />
-            <label htmlFor="category">Category : </label>
-            <input type="text" name="category" id="category" onChange={handleChange}></input><br />
-            <label htmlFor="thumbnail">Thumbnail : </label>
-            <input type="file" name="thumbnail" id="thumbnail" accept="image/*" onChange={handleChange}></input><br />
-            <input type="submit" value="Add Course"></input>
-            <input type="button" value="Back" onClick={()=>navigate(-1)}></input>
+            <label htmlFor="title">Title</label>
+            <input type="text" name="title" id="title" onChange={handleChange} />
+
+            <label htmlFor="des">Description</label>
+            <input type="text" name="description" id="description" onChange={handleChange} />
+
+            <label htmlFor="category">Category</label>
+            <input type="text" name="category" id="category" onChange={handleChange} />
+
+            <label htmlFor="thumbnail">Thumbnail</label>
+            <input type="file" name="thumbnail" id="thumbnail" accept="image/*" onChange={handleChange} />
+
+            <div className="form-buttons">
+                <input type="submit" value="Add Course" />
+                <input type="button" value="Back" onClick={() => navigate(-1)} />
+            </div>
         </form>
     </div>
 };

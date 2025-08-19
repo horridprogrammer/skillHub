@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./AddUser.css"
 
 const AddUser = () =>{
     
@@ -44,9 +45,9 @@ const AddUser = () =>{
         }
     }
 
-    return <div>
-        <h1>Add New User</h1>
-        <form onSubmit={handleSubmit}>
+    return <div className="adduser_container">
+        <form onSubmit={handleSubmit} className="add_form">
+            <h1 className="head">Add New User</h1>
             <label htmlFor="name">Name :</label>
             <input type="text" id="name" name="name" placeholder="Enter name" onChange={handleChange}></input><br/>
             <label htmlFor="email">Email : </label>
@@ -54,7 +55,10 @@ const AddUser = () =>{
             <label htmlFor="password">Password : </label>
             <input type="password" id="password" name="password" placeholder="Enter password" onChange={handleChange}></input><br/>
             <label htmlFor="role">Role : </label>
-            <input type="radio" id="role" name="role" value="ADMIN" onChange={handleChange}></input><label>Admin</label> <input type="radio" id="role" name="role" value="USER" onChange={handleChange}></input><label>User</label><br/>
+            <div className="role_options">
+                <label><input type="radio" name="role" value="ADMIN" onChange={handleChange} /> Admin</label>
+                <label><input type="radio" name="role" value="USER" onChange={handleChange} /> User</label>
+            </div>
             <input type="submit" value="Add User"></input> <input type="button" value="Back" onClick={()=>nav(-1)}></input>
         </form>
         

@@ -1,0 +1,146 @@
+/* sh1 theme for DisplayCourse */
+
+.display-course-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #2c3e50;
+}
+
+.display-course-container h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #34495e;
+}
+
+.display-course-summary {
+  background: #f4f6f9;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.display-course-actions {
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+.display-course-actions input {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  border: none;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.display-course-actions input:hover {
+  background: linear-gradient(135deg, #2980b9, #2471a3);
+  transform: scale(1.05);
+}
+
+.course-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.course-table thead {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: #fff;
+}
+
+.course-table th,
+.course-table td {
+  padding: 14px 16px;
+  text-align: center;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+
+.course-table img {
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.course-actions input {
+  margin: 5px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.course-actions input[value="Remove"] {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.course-actions input[value="Remove"]:hover {
+  background: #c0392b;
+  transform: scale(1.05);
+}
+
+.course-actions input[value="Update"] {
+  background: #27ae60;
+  color: #fff;
+}
+
+.course-actions input[value="Update"]:hover {
+  background: #1e8449;
+  transform: scale(1.05);
+}
+
+/* Stats Container */
+.stats-container {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Individual Stat Card */
+.stat-card {
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  border-radius: 16px;
+  padding: 20px 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  min-width: 180px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Stat Title */
+.stat-title {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Stat Value */
+.stat-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: #2d3748;
+}

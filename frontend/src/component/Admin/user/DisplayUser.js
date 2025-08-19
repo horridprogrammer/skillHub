@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import "./DisplayUser.css";
 const DisplayUser = () =>{
 
     const [data,setData] = useState([]);
@@ -46,11 +46,16 @@ const DisplayUser = () =>{
         nav("/admin/admin/updateuser", { state: user });
     }
 
-    return  <div>
+    return  <div className="displayuser_container">
             <h1>Users</h1>
-            <p>Total Users : {data.length} Total Admin : {data.filter((x)=>x.role==="ADMIN").length} Total Non-Admin : {data.filter((x)=>x.role!=="ADMIN").length}</p>
+            <p className="user_stats">
+                <span className="total">Total Users : {data.length}</span>
+                <span className="admin">Total Admin : {data.filter((x) => x.role === "ADMIN").length}</span>
+                <span className="nonadmin">Total Non-Admin : {data.filter((x) => x.role !== "ADMIN").length}</span>
+            </p>
+
             <input type="button" value="Add New User" onClick={()=>nav("/admin/admin/adduser")}></input>
-            <table border="1px">
+            <table className="displayuser_table">
                 <thead>
                     <tr>
                         <th>Name</th>

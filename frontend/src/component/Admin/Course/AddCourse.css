@@ -1,0 +1,84 @@
+/* 🎨 sh1 theme styling for AddCourse */
+
+.add-course-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.add-course-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.add-course-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.add-course-container label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 4px;
+}
+
+.add-course-container input[type="text"],
+.add-course-container input[type="file"] {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.add-course-container input[type="text"]:focus,
+.add-course-container input[type="file"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.2);
+}
+
+.add-course-container .form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.add-course-container input[type="submit"],
+.add-course-container input[type="button"] {
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px 14px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-course-container input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+}
+
+.add-course-container input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.add-course-container input[type="button"] {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.add-course-container input[type="button"]:hover {
+  background-color: #e0e0e0;
+}

@@ -1,0 +1,75 @@
+/* sh1 theme container - wider for inline form */
+.sh1-container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 35px 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #2c3e50;
+}
+
+/* Heading */
+.sh1-heading {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 30px;
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* Form */
+.sh1-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Label + input row */
+.sh1-form-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Label styling */
+.sh1-form-row label {
+  width: 120px;
+  font-weight: 600;
+}
+
+/* Input styling */
+.sh1-input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.sh1-input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 6px rgba(0,123,255,0.3);
+}
+
+/* Submit button */
+.sh1-button {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: #fff;
+  transition: 0.3s;
+}
+
+.sh1-button:hover {
+  background: linear-gradient(135deg, #2980b9, #2471a3);
+  transform: translateY(-2px);
+}

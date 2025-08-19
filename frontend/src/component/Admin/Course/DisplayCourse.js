@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./DisplayCourse.css";
 
 const DisplayCourse = () =>{
 
@@ -47,13 +48,24 @@ const DisplayCourse = () =>{
         nav("/admin/admin/updatecourse",{state: course});
     }
 
-    return <div>
+    return <div className="display-course-container">
         <h1>Courses</h1>
 
-        <p>Total Courses : {data.length} Total number of Enrollments : </p>
+        <div className="stats-container">
+            <div className="stat-card">
+                <span className="stat-title">Total Courses</span>
+                <span className="stat-value">{data.length}</span>
+            </div>
+            <div className="stat-card">
+                <span className="stat-title">Total Enrollments</span>
+                <span className="stat-value">0</span> {/* replace 0 with actual count */}
+            </div>
+        </div>
 
-        <input type="button" value="Add Course" onClick={()=>nav("/admin/admin/addcourse")}></input>
-        <table border="1px">
+        <div className="display-course-actions">
+            <input type="button" value="Add Course" onClick={()=>nav("/admin/admin/addcourse")}></input>
+        </div>
+        <table className="course-table">
             <thead>
                 <tr>
                     <th>Title</th>
@@ -76,8 +88,10 @@ const DisplayCourse = () =>{
                                 height="80"
                             />
                         </td>
-                        <td><input type="button" value="Remove" onClick={()=>handleDelete(x.id)}></input></td>
-                        <td><input type="button" value="Update" onClick={()=>handleUpdate(x)}></input></td>
+                        <td className="course-actions">
+                            <input type="button" value="Remove" onClick={() => handleDelete(x.id)} />
+                            <input type="button" value="Update" onClick={() => handleUpdate(x)} />
+                        </td>
                     </tr>
                 )}
             </tbody>

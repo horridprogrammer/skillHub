@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import "./Login.css"
 const Login = () => {
     const [data, setData] = useState({
         username: "",
@@ -53,31 +53,39 @@ const Login = () => {
     };
 
     return (
-        <div>
-            <h1>Login</h1>
-
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Username: </label>
+        <div className="sh1-container">
+            
+            <form className="sh1-form" onSubmit={handleSubmit}>
+                <h1 className="sh1-heading">Login</h1>
+                <div className="sh1-form-row">
+                <label htmlFor="username">Username:</label>
                 <input
                     type="text"
                     id="username"
                     name="username"
                     placeholder="Enter Username"
+                    className="sh1-input"
                     onChange={handleChange}
-                /><br />
+                />
+                </div>
 
-                <label htmlFor="password">Password: </label>
+                <div className="sh1-form-row">
+                <label htmlFor="password">Password:</label>
                 <input
                     type="password"
                     id="password"
                     name="password"
                     placeholder="Enter Password"
+                    className="sh1-input"
                     onChange={handleChange}
-                /><br />
+                />
+                </div>
 
-                <input type="submit" value="Login" />
+                <input type="submit" value="Login" className="sh1-button" />
             </form>
         </div>
+
+
     );
 };
 

@@ -1,0 +1,103 @@
+/* Container */
+.updateuser_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 20px;
+}
+
+/* Form Card */
+.update_form {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Heading */
+.update_form h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 10px;
+}
+
+/* Label */
+.update_form label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Input fields */
+.update_form input[type="text"],
+.update_form input[type="email"],
+.update_form input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.update_form input:focus {
+  border-color: #2563eb;
+}
+
+/* Radio group */
+.role_group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+.role_group label {
+  margin: 0;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* Buttons */
+.update_form .btn_group {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.update_form input[type="submit"],
+.update_form input[type="button"] {
+  flex: 1;
+  padding: 12px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.update_form input[type="button"] {
+  background: #6b7280; /* Back button = gray */
+}
+
+.update_form input[type="submit"]:hover {
+  background: #1d4ed8;
+}
+
+.update_form input[type="button"]:hover {
+  background: #4b5563;
+}

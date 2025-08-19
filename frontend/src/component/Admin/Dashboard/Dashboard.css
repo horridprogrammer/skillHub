@@ -1,0 +1,57 @@
+/* Dashboard.css (sh1 theme with popup alert) */
+
+.dashboard_container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.dashboard_heading {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* Alert Box */
+.dashboard_alert {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f6ecec;
+  color: #2d3748;
+  font-size: 1rem;
+  padding: 24px 40px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  gap: 16px;
+  animation: fadeIn 0.4s ease-in-out;
+  position: relative;
+}
+
+/* Close Button */
+.alert_close {
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #718096;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.alert_close:hover {
+  color: #e53e3e; /* soft red on hover */
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

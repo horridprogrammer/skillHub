@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
+import "./UpdateLesson.css"
 
 const UpdateLesson = () => {
   const navigate = useNavigate();
@@ -54,45 +55,50 @@ const UpdateLesson = () => {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const formData = new FormData();
-  formData.append("title", data.title);
-  formData.append("lessonOrder", data.lessonOrder);
-  formData.append("course_id", data.courseId);
+    const formData = new FormData();
+    formData.append("title", data.title);
+    formData.append("lessonOrder", data.lessonOrder);
+    formData.append("course_id", data.courseId);
 
-  if (data.video) {
-    formData.append("video", data.video);
-  }
+    if (data.video) {
+      formData.append("video", data.video);
+    }
 
-  try {
-    const token = localStorage.getItem("token");
-    await axios.put(
-      `http://localhost:8081/api/lesson/${lesson.id}`,
-      formData,
-      {
-        headers: {
-          Authorization: `Bearer ${token}` // ✅ Don't set Content-Type here
+    try {
+      const token = localStorage.getItem("token");
+      await axios.put(
+        `http://localhost:8081/api/lesson/${lesson.id}`,
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
         }
-      }
-    );
+      );
 
-    alert("Lesson updated successfully");
-    navigate("/admin/admin/lesson");
-  } catch (error) {
-    console.error("Error updating lesson:", error);
-    alert("Failed to update lesson");
-  }
-};
-
+      alert("Lesson updated successfully");
+      navigate("/admin/admin/lesson");
+    } catch (error) {
+      console.error("Error updating lesson:", error);
+      alert("Failed to update lesson");
+    }
+  };
 
   return (
-    <div>
-      <h1>Update Lesson</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="sh1-container">
+      <form className="sh1-form" onSubmit={handleSubmit}>
+        
+      <h1 className="sh1-heading">Update Lesson</h1>
         <label>Title:</label>
-        <input type="text" name="title" value={data.title} onChange={handleChange} />
-        <br />
+        <input
+          type="text"
+          name="title"
+          value={data.title}
+          onChange={handleChange}
+          className="sh1-input"
+        />
 
         <label>Lesson Order:</label>
         <input
@@ -100,11 +106,16 @@ const UpdateLesson = () => {
           name="lessonOrder"
           value={data.lessonOrder}
           onChange={handleChange}
+          className="sh1-input"
         />
-        <br />
 
         <label>Course:</label>
-        <select name="courseId" value={data.courseId} onChange={handleChange}>
+        <select
+          name="courseId"
+          value={data.courseId}
+          onChange={handleChange}
+          className="sh1-select"
+        >
           <option value="">Select</option>
           {courseData.map((c) => (
             <option key={c.id} value={String(c.id)}>
@@ -112,29 +123,39 @@ const UpdateLesson = () => {
             </option>
           ))}
         </select>
-        <br />
 
         <label>Video:</label>
-        <input type="file" name="video" accept="video/*" onChange={handleChange} />
-        <br />
+        <input
+          type="file"
+          name="video"
+          accept="video/*"
+          onChange={handleChange}
+          className="sh1-input-file"
+        />
 
         {lesson.videoUrl && (
           <>
             <p>Current Video:</p>
             <video
               src={`http://localhost:8081/videUploads/${lesson.videoUrl}`}
-              width="300"
-              height="200"
               controls
+              className="sh1-video"
             />
           </>
         )}
-        <br />
 
-        <button type="submit">Update Lesson</button>
-        <button type="button" onClick={() => navigate(-1)}>
-          Back
-        </button>
+        <div className="sh1-button-group">
+          <button type="submit" className="sh1-button sh1-button-primary">
+            Update Lesson
+          </button>
+          <button
+            type="button"
+            className="sh1-button sh1-button-secondary"
+            onClick={() => navigate(-1)}
+          >
+            Back
+          </button>
+        </div>
       </form>
     </div>
   );

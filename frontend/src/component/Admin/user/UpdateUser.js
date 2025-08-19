@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import "./UpdateUser.css"
 
 const UpdateUser = () => {
     const location = useLocation();
@@ -37,9 +38,9 @@ const UpdateUser = () => {
     };
 
     return (
-        <div>
-            <h1>Update User</h1>
-            <form onSubmit={handleSubmit}>
+        <div className="updateuser_container">
+            <form onSubmit={handleSubmit} className="update_form">
+                <h1>Update User</h1>
                 <label htmlFor="name">Name :</label>
                 <input
                     type="text"
@@ -71,27 +72,18 @@ const UpdateUser = () => {
                 <br />
 
                 <label>Role : </label>
-                <input
-                    type="radio"
-                    name="role"
-                    value="ADMIN"
-                    checked={data.role === "ADMIN"}
-                    onChange={handleChange}
-                />
-                <label>Admin</label>
-
-                <input
-                    type="radio"
-                    name="role"
-                    value="USER"
-                    checked={data.role === "USER"}
-                    onChange={handleChange}
-                />
-                <label>User</label>
+                <div className="role_group">
+                    <input type="radio" name="role" value="ADMIN" checked={data.role === "ADMIN"} onChange={handleChange} />
+                    <label>Admin</label>
+                    <input type="radio" name="role" value="USER" checked={data.role === "USER"} onChange={handleChange} />
+                    <label>User</label>
+                </div>
                 <br />
 
-                <input type="submit" value="Update User" />{" "}
-                <input type="button" value="Back" onClick={() => nav(-1)} />
+                <div className="btn_group">
+                    <input type="submit" value="Update User" />
+                    <input type="button" value="Back" onClick={() => nav(-1)} />
+                </div>
             </form>
         </div>
     );
