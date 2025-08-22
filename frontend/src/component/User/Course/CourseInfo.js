@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import "./CourseInfo.css";
 
 const CourseInfo = () =>{
     const nav = useNavigate();
@@ -10,7 +11,7 @@ const CourseInfo = () =>{
     const [data,setData] = useState({
         "date":new Date().toISOString().slice(0,19),
         "user":{},
-        "course":course
+        "course":course.id
     });
 
     const handleEnrollment = async (e) =>{
@@ -21,10 +22,10 @@ const CourseInfo = () =>{
                 console.log(data)
                 console.log(token)
                 const response = await axios.post("http://localhost:8081/api/enrollment/add",data,{
-                    headers:{
+                    headers: {
+                        "Content-Type": "application/json",
                         Authorization: `Bearer ${token}`,
-                        "Content-Type": "application/json"
-                    }
+                    },
                 })
                 setIsEnrolled(true);
                 alert("You are Successfully Enrolled")
@@ -60,15 +61,18 @@ const CourseInfo = () =>{
     }, []);
 
     
-    return <div>
-        <h1>Course Info</h1>
-        <img src={`http://localhost:8081/uploads/${course.thumbnail}`} width="500px" height="300px"></img>
-        <h2>Title : {course.title}</h2>
-        <h2>Category : {course.category}</h2>
-        <h3>Description : </h3>
-        <p>{course.description}</p>
-        <input type="button" value={isEnrolled?"Enrolled":"Enroll"} onClick={handleEnrollment}></input>
-        <input type="button" value="Back" onClick={()=>nav(-1)}></input>
-    </div>
+    return (
+  <div className="course-info-container">
+    <h1>Course Info</h1>
+    <img src={`http://localhost:8081/uploads/${course.thumbnail}`} alt="Course Thumbnail" />
+    <h2>Title : {course.title}</h2>
+    <h2>Category : {course.category}</h2>
+    <h3>Description :</h3>
+    <p>{course.description}</p>
+    <input type="button" value={isEnrolled ? "Enrolled" : "Enroll"} onClick={handleEnrollment} />
+    <input type="button" value="Back" onClick={() => nav(-1)} />
+  </div>
+);
+
 }
 export default CourseInfo;

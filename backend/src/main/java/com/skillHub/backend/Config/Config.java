@@ -43,7 +43,7 @@ public class Config {
                         .requestMatchers("/uploads/**").permitAll()
                         .requestMatchers("/videUploads/**").permitAll()
                         .requestMatchers("/api/user/**").hasAnyRole("ADMIN","USER")
-                        .requestMatchers("/api/enrollment/add").hasAnyRole("USER","ADMIN")
+                        .requestMatchers("/api/enrollment/add").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

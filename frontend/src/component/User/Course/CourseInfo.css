@@ -1,0 +1,81 @@
+/* sh1 theme - Course Info Page */
+
+.course-info-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.course-info-container h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.course-info-container img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.course-info-container h2 {
+  font-size: 22px;
+  margin: 12px 0;
+  color: #34495e;
+}
+
+.course-info-container h3 {
+  margin-top: 18px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.course-info-container p {
+  line-height: 1.6;
+  color: #555;
+  margin-top: 8px;
+  font-size: 16px;
+}
+
+/* Buttons */
+.course-info-container input[type="button"] {
+  margin: 15px 10px 0 0;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+.course-info-container input[type="button"]:first-of-type {
+  background: linear-gradient(135deg, #4cafef, #0077cc);
+  color: #fff;
+}
+
+.course-info-container input[type="button"]:first-of-type:hover {
+  background: linear-gradient(135deg, #3399ff, #005fa3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,119,204,0.3);
+}
+
+.course-info-container input[type="button"]:last-of-type {
+  background: #eaeaea;
+  color: #333;
+}
+
+.course-info-container input[type="button"]:last-of-type:hover {
+  background: #d5d5d5;
+  transform: translateY(-2px);
+}

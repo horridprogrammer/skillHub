@@ -28,6 +28,7 @@ const AddUser = () =>{
                     Authorization:`Bearer ${token}`
                 }
             });
+            console.log(token);
             alert("User Added SuccessFully");
 
             setData({
@@ -40,6 +41,7 @@ const AddUser = () =>{
             nav("/admin/admin/user");
 
         }catch(error){
+            console.log(localStorage.getItem("token"));;
             console.error("Error Adding User:",error);
             alert("Error while adding User");
         }
